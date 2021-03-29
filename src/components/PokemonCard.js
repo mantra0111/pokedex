@@ -1,15 +1,41 @@
+import { useEffect, useState } from "react"
+
 export default function PokemonCard(props) {
-
+    // this is neccesary for layout and data fetching
     let { pokemonId, pokemonName } = props
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
 
+    // this state will save the fetched data 
+    const [pokemonTypes, setPokemonTypes] = useState(null)
+    const [pokemonStats, setPokemonStats] = useState(null)
+
+
+    // get the data for each pokemon with useEffect 
+    useEffect(() => {
+        async function fetchDetails() {
+            let request = await fetch(url)
+            let pokemon = await request.json()
+            let types = await pokemon.types.map((index) => {
+                return index.type.name
+            })
+            let stats = await pokemon.stats.map((index) => {
+                let { name } = index.stat
+                return `${name}: ${index.base_stat}`
+            })
+            types = await types.join("/")
+            stats = await stats.join(" ")
+            setPokemonTypes(types)
+            setPokemonStats(stats)
+        }
+        fetchDetails()
+        console.log(pokemonTypes)
+    }, [])
 
     // img-urls
     let officialArtwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
-    let imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
-    let shinyUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokemonId}.png`
-    // styles
+    // // styles
     async function fetchData() {
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
+
         let request = await fetch(url)
         let pokemon = await request.json()
         let types = await pokemon.types.map((index) => {
@@ -34,9 +60,11 @@ export default function PokemonCard(props) {
 
     return (
         <div style={containerStyle}>
-            <h3 style={{}}>{pokemonName}</h3>
+            <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
             <img style={{ width: '180px' }} src={officialArtwork}></img>
-            <button onClick={() => fetchData()}>see details</button>
+            <h5>{pokemonTypes}</h5>
+            <p>{pokemonStats}</p>
+            <h5>a button should be here </h5>
         </div>
     )
 }
