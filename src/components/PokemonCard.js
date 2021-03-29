@@ -59,6 +59,7 @@ export default function PokemonCard(props) {
                 <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
                 <img style={{ width: '180px' }} src={officialArtwork}></img>
                 <h5>{pokemonTypes}</h5>
+                <p>{pokemonStats}</p>
             </div>
         </Link>
     )

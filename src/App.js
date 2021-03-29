@@ -1,6 +1,6 @@
 import Dex from './components/Dex'
-import './App.css';
 import React from 'react';
+import Navbar from './components/Navbar'
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import PokemonDetails from './components/PokemonDetails';
 
@@ -9,8 +9,9 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <h1 style={{ textAlign: 'center' }}>pokedex</h1>
 
+        <Navbar />
+        <h1>.</h1>
         <Switch>
           <Route path="/" exact>
             <Dex />

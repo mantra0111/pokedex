@@ -1,4 +1,4 @@
-import PokemonCard from './PokemonCard'
+import PokemonCard from './PokemonCard';
 import React from 'react';
 
 class Dex extends React.Component {
