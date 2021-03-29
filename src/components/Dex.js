@@ -11,7 +11,7 @@ class Dex extends React.Component {
         }
     }
     async componentDidMount() {
-        let url = 'https://pokeapi.co/api/v2/pokemon?limit=5'
+        let url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
         let completeDex = 'https://pokeapi.co/api/v2/pokemon?limit=1118'
         let request = await fetch(url)
         let data = await request.json()

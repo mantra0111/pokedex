@@ -18,7 +18,9 @@ export default function PokemonCard(props) {
             let request = await fetch(url)
             let pokemon = await request.json()
             let types = await pokemon.types.map((index) => {
-                return index.type.name
+                let { name } = index.type
+                let capitalized = name[0].toUpperCase() + (name.substr(1))
+                return capitalized
             })
             let stats = await pokemon.stats.map((index) => {
                 let { name } = index.stat
@@ -57,8 +59,6 @@ export default function PokemonCard(props) {
                 <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
                 <img style={{ width: '180px' }} src={officialArtwork}></img>
                 <h5>{pokemonTypes}</h5>
-                <p>{pokemonStats}</p>
-                <h5>a button should be here </h5>
             </div>
         </Link>
     )
