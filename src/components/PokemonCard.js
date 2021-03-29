@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom'
+
 
 export default function PokemonCard(props) {
     // this is neccesary for layout and data fetching
@@ -33,18 +35,7 @@ export default function PokemonCard(props) {
 
     // img-urls
     let officialArtwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
-    // // styles
-    async function fetchData() {
-
-        let request = await fetch(url)
-        let pokemon = await request.json()
-        let types = await pokemon.types.map((index) => {
-            return index.type.name
-        })
-        //let types = [pokemon.types[0].type.name, pokemon.types[1].type.name]
-        alert(`${pokemon.name}, ${types}`)
-    }
-
+    // styles
     let containerStyle = {
         fontFamily: "'Oswald', sans-serif",
         display: "inline-block",
@@ -55,16 +46,20 @@ export default function PokemonCard(props) {
         borderRadius: 15,
         textAlign: "center",
         boxShadow: "0px 0px 10px",
-        backgroundImage: 'url("https://pngimg.com/uploads/pokeball/pokeball_PNG19.png")'
+        backgroundImage: 'url("https://pngimg.com/uploads/pokeball/pokeball_PNG19.png")',
+        textDecoration: 'none',
+        color: "black"
     }
 
     return (
-        <div style={containerStyle}>
-            <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
-            <img style={{ width: '180px' }} src={officialArtwork}></img>
-            <h5>{pokemonTypes}</h5>
-            <p>{pokemonStats}</p>
-            <h5>a button should be here </h5>
-        </div>
+        <Link to="/details">
+            <div style={containerStyle}>
+                <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
+                <img style={{ width: '180px' }} src={officialArtwork}></img>
+                <h5>{pokemonTypes}</h5>
+                <p>{pokemonStats}</p>
+                <h5>a button should be here </h5>
+            </div>
+        </Link>
     )
 }
