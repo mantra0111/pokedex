@@ -11,8 +11,10 @@ class Dex extends React.Component {
         }
     }
     async componentDidMount() {
-        let url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
-        let completeDex = 'https://pokeapi.co/api/v2/pokemon?limit=1118'
+        // for all the pokedex set limit=898
+        // for all the pokedex including forms limit = 1118
+        // first gen is 151, fourth gen in 493
+        let url = 'https://pokeapi.co/api/v2/pokemon?limit=898'
         let request = await fetch(url)
         let data = await request.json()
         this.setState({ pokemon: data.results, loading: false })
@@ -27,6 +29,7 @@ class Dex extends React.Component {
         ))
         return (
             <>
+                <h1 style={{ textAlign: "center" }}>Pokedex</h1>
                 {this.state.loading ? <h1>loading ...</h1> : pokemonMap}
 
             </>

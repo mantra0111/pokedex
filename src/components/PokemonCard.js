@@ -9,8 +9,6 @@ export default function PokemonCard(props) {
 
     // this state will save the fetched data 
     const [pokemonTypes, setPokemonTypes] = useState(null)
-    const [pokemonStats, setPokemonStats] = useState(null)
-
 
     // get the data for each pokemon with useEffect 
     useEffect(() => {
@@ -22,16 +20,13 @@ export default function PokemonCard(props) {
                 let capitalized = name[0].toUpperCase() + (name.substr(1))
                 return capitalized
             })
-            let stats = await pokemon.stats.map((index) => {
-                let { name } = index.stat
-                return `${name}: ${index.base_stat}`
-            })
             types = await types.join("/")
-            stats = await stats.join(" ")
             setPokemonTypes(types)
-            setPokemonStats(stats)
+
         }
-        fetchDetails()
+        if (pokemonTypes != null) {
+            fetchDetails()
+        }
     }, [])
 
     // img-urls
@@ -53,12 +48,12 @@ export default function PokemonCard(props) {
     }
 
     return (
-        <Link to="/details">
+        <Link to={`/details/${pokemonId}`}>
             <div style={containerStyle}>
                 <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
                 <img style={{ width: '180px' }} src={officialArtwork}></img>
                 <h5>{pokemonTypes}</h5>
-                <p>{pokemonStats}</p>
+
             </div>
         </Link>
     )
