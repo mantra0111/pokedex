@@ -32,7 +32,6 @@ export default function PokemonCard(props) {
             setPokemonStats(stats)
         }
         fetchDetails()
-        console.log(pokemonTypes)
     }, [])
 
     // img-urls

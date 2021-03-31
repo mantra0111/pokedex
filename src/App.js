@@ -9,9 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-
-        <Navbar />
-        <h1>.</h1>
+        <h1 style={{ textAlign: "center" }}>Pokedex</h1>
         <Switch>
           <Route path="/" exact>
             <Dex />
