@@ -44,20 +44,29 @@ export default function PokemonDetails() {
 
         fetchForDetails()
     }, [])
-
+    let detailsStyle = {
+        fontFamily: "'Oswald', sans-serif",
+        backgroundColor: '#98d8f5',
+        textAlign: 'center',
+        margin: "80px 0px 0px 0px",
+    }
     return (
-        <div style={{ backgroundColor: '#bababa', textAlign: 'center' }}>
+        <div style={detailsStyle}>
             {loading ?
                 <div>Loading ...</div> :
                 <div>
-                    <h1>details of {pokemonData.name}</h1>
-                    <img style={{ height: '300px' }} src={imgUrl}></img>
+                    <h1>details of {pokemonData.name[0].toUpperCase() + pokemonData.name.substr(1)}</h1>
+                    <img
+                        style={{ height: '300px' }}
+                        src={imgUrl}
+                        alt={`pokemon number ${id}`}></img>
                     <h3>{pokemonTypes}</h3>
                     <p>{pokemonStats}</p>
                     <Link to='/'>
                         <button style={styleButton}> go back to dex </button>
                     </Link>
                 </div>}
+            <h1>.</h1>
         </div>
     )
 }

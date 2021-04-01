@@ -23,18 +23,22 @@ export default function Navbar() {
     const classes = useStyles();
 
     return (
-        <AppBar position="fixed" color="secondary" >
+        <AppBar position="fixed" style={{ top: 0 }} color="primary" >
             <Toolbar>
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" className={classes.title}>
-                    News
-                </Typography>
-                <Typography>
+                <Typography variant="h6" className={classes.title} >
                     Pokedex
                 </Typography>
-                <Button color="inherit">Login</Button>
+                <a
+                    href="https://github.com/mantra0111"
+                    target="_blank"
+                    style={{ textDecoration: 'none' }} >
+                    <Button
+                        style={{ textDecoration: 'none', color: 'white' }}
+                        color="inherit">My Github profile</Button>
+                </a>
             </Toolbar>
         </AppBar>
     )

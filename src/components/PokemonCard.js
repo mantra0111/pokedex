@@ -24,9 +24,7 @@ export default function PokemonCard(props) {
             setPokemonTypes(types)
 
         }
-        if (pokemonTypes != null) {
-            fetchDetails()
-        }
+        fetchDetails()
     }, [])
 
     // img-urls
@@ -37,23 +35,25 @@ export default function PokemonCard(props) {
         display: "inline-block",
         margin: "20px 20px",
         width: '180px',
-        background: '#bababa',
+        background: '#98d8f5',
         padding: 20,
         borderRadius: 15,
         textAlign: "center",
-        boxShadow: "0px 0px 10px",
+        boxShadow: "0px 0px 20px #98d8f5",
         backgroundImage: 'url("https://pngimg.com/uploads/pokeball/pokeball_PNG19.png")',
         textDecoration: 'none',
-        color: "black"
+        color: "#3a4042"
     }
 
     return (
         <Link to={`/details/${pokemonId}`}>
             <div style={containerStyle}>
-                <h3 >{`#${pokemonId} - ${pokemonName}`}</h3>
-                <img style={{ width: '180px' }} src={officialArtwork}></img>
-                <h5>{pokemonTypes}</h5>
-
+                <img
+                    style={{ width: '180px' }}
+                    src={officialArtwork}
+                    alt={`pokemon number ${pokemonId}`}></img>
+                <h3>{`#${pokemonId} - ${pokemonName[0].toUpperCase() + pokemonName.substr(1)}`}</h3>
+                <h4>{pokemonTypes}</h4>
             </div>
         </Link>
     )
