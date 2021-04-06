@@ -1,49 +1,54 @@
 import PokemonCard from './PokemonCard';
 import React from 'react';
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import { makeStyles } from '@material-ui/core'
+import { useState, useEffect } from 'react'
 
+const useStyles = makeStyles({
+    styleDex: {
+        margin: '65px 0px 100px 0px',
+        textAlign: 'center',
+        width: '100%'
+    }
+})
 
-class Dex extends React.Component {
+export default function Dex() {
+    const [pokemon, Setpokemon] = useState([])
+    const [loading, SetLoading] = useState(true)
+    const classes = useStyles()
 
-    constructor() {
-        super()
-        this.state = {
-            loading: true,
-            pokemon: []
+    useEffect(() => {
+        async function fetchDex() {
+            // 4th gen = 493
+            let url = 'https://pokeapi.co/api/v2/pokemon?limit=898'
+            let request = await fetch(url)
+            let data = await request.json()
+            Setpokemon(data.results)
+            SetLoading(false)
+            console.log(pokemon)
         }
-    }
+        fetchDex()
+    }, [])
 
-    async componentDidMount() {
-        // for all the pokedex set limit=898
-        // for all the pokedex including forms limit = 1118
-        // first gen is 151, fourth gen in 493
-        let url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
-        let request = await fetch(url)
-        let data = await request.json()
-        this.setState({ pokemon: data.results, loading: false })
-    }
-    render() {
-        let pokemonMap = this.state.pokemon.map((pokemon, index) => (
-            <PokemonCard
-                pokemonId={index + 1}
-                pokemonName={pokemon.name}
-                key={index}
-            />
-        ))
-        let styleDex = {
-            margin: '80px 0px 100px 0px',
-            width: '100vw',
-            textAlign: 'center'
-        }
+    let pokemonMap = pokemon.map((pokemon, index) => (
+        <Grid item lg={3} sm={4} xs={12} key={index}>
+            <Paper elevation={5} >
+                <PokemonCard
+                    pokemonId={index + 1}
+                    pokemonName={pokemon.name} />
+            </Paper>
+        </Grid>
+    ))
 
-        return (
-            <>
-
-                <div style={styleDex} >
-                    {this.state.loading ? <h1>loading ...</h1> : pokemonMap}
-                </div>
-            </>
-        );
-    }
+    return (
+        <>
+            <Grid
+                spacing={3}
+                container
+                className={classes.styleDex} >
+                {loading ? <h1>loading ...</h1> : pokemonMap}
+            </Grid>
+        </>
+    )
 }
-
-export default Dex;

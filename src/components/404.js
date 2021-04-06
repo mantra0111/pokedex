@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 
-export default function PokemonDetails(props) {
+export default function PokemonNotFound(props) {
     const url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/201.png"
     // using the url parameters
     // import { useParams } from 'react-router-dom' then 

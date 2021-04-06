@@ -1,16 +1,31 @@
+import Typography from '@material-ui/core/Typography'
+import CardHeader from "@material-ui/core/CardHeader"
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+//----------------------------------------------------//
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
 
+const useStyles = makeStyles({
+    card: {
+        backgroundColor: '#98d8f5',
+        textDecoration: 'none',
+    },
+})
 
 export default function PokemonCard(props) {
-    // this is neccesary for layout and data fetching
+    // Data for Layout
     let { pokemonId, pokemonName } = props
     let url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`
+    let pokemonTitle = `#${pokemonId} - ${pokemonName[0].toUpperCase() + pokemonName.substr(1)}`
+    let officialArtwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
 
-    // this state will save the fetched data 
+    // HOOKS
     const [pokemonTypes, setPokemonTypes] = useState(null)
+    const classes = useStyles()
 
-    // get the data for each pokemon with useEffect 
+    // FETCH DATA 
     useEffect(() => {
         async function fetchDetails() {
             let request = await fetch(url)
@@ -27,34 +42,29 @@ export default function PokemonCard(props) {
         fetchDetails()
     }, [])
 
-    // img-urls
-    let officialArtwork = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
-    // styles
-    let containerStyle = {
-        fontFamily: "'Oswald', sans-serif",
-        display: "inline-block",
-        margin: "20px 20px",
-        width: '180px',
-        background: '#98d8f5',
-        padding: 20,
-        borderRadius: 15,
-        textAlign: "center",
-        boxShadow: "0px 0px 20px #98d8f5",
-        backgroundImage: 'url("https://pngimg.com/uploads/pokeball/pokeball_PNG19.png")',
-        textDecoration: 'none',
-        color: "#3a4042"
-    }
-
     return (
-        <Link to={`/details/${pokemonId}`}>
-            <div style={containerStyle}>
-                <img
-                    style={{ width: '180px' }}
-                    src={officialArtwork}
-                    alt={`pokemon number ${pokemonId}`}></img>
-                <h3>{`#${pokemonId} - ${pokemonName[0].toUpperCase() + pokemonName.substr(1)}`}</h3>
-                <h4>{pokemonTypes}</h4>
-            </div>
+        <Link to={`/details/${pokemonId}`} style={{ textDecoration: 'none' }}>
+            <Card className={classes.card} >
+                <CardHeader
+                    title={<Typography
+                        variant="h6"
+                        component="h3">{pokemonTitle}
+                    </Typography>}
+
+                />
+                <CardContent>
+                    <img
+                        style={{ width: '150px', height: '150px' }}
+                        src={officialArtwork}
+                        alt={`pokemon number ${pokemonId}, ${pokemonName}`}></img>
+                    <Typography
+                        variant="h6"
+                        color="textSecondary"
+                        component="h5">
+                        {pokemonTypes}
+                    </Typography>
+                </CardContent>
+            </Card>
         </Link>
     )
 }
