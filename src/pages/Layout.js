@@ -1,6 +1,8 @@
-import Drawer from '@material-ui/core/Drawer'
 import Navbar from '../components/Navbar'
 import { makeStyles } from '@material-ui/core'
+import NavDrawer from '../components/NavDrawer'
+import { useState } from 'react'
+
 
 const useStyles = makeStyles({
     appBar: {
@@ -20,11 +22,21 @@ const useStyles = makeStyles({
 })
 
 export default function Layout({ children }) {
+
+    const [state, setState] = useState({
+        drawerOpen: false
+    })
+
+    const handleDrawer = () => {
+
+        setState({ drawerOpen: !state.drawerOpen })
+    }
     const classes = useStyles()
 
     return (<>
         <header className={classes.root}>
-            <Navbar className={classes.appBar} />
+            <Navbar handleDrawer={handleDrawer} className={classes.appBar} />
+            <NavDrawer handleDrawer={handleDrawer} drawerOpen={state.drawerOpen} />
         </header>
         <article>{children}</article>
     </>)

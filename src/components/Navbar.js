@@ -5,26 +5,41 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'
+import TextField from '@material-ui/core/TextField'
 
-export default function Navbar() {
+
+const useStyles = makeStyles({
+    searchField: {
+        margin: '0px 30px 0px 30px',
+        color: '#fff'
+    },
+    toolbar: {
+        display: 'flex',
+        alignContent: 'center'
+    }
+})
+
+
+export default function Navbar({ handleDrawer }) {
+
+    const classes = useStyles()
+
+
+    const handleSearch = () => {
+
+    }
 
     return (
         <AppBar position="fixed" style={{ top: 0 }} color="primary" >
-            <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="menu">
+            <Toolbar className={classes.toolbar} >
+                <IconButton onClick={() => { handleDrawer() }} edge="start" color="inherit" aria-label="menu">
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" >
-                    Pokedex
-                </Typography>
-                <a
-                    href="https://github.com/mantra0111"
-                    target="_blank"
-                    style={{ textDecoration: 'none', float: 'right' }} >
-                    <Button
-                        style={{ textDecoration: 'none', color: 'white' }}
-                        color="inherit">My Github profile</Button>
-                </a>
+                {/* <TextField
+                    onChange={handleSearch}
+                    variant="filled"
+                    className={classes.searchField}
+                    placeholder="search" /> */}
             </Toolbar>
         </AppBar>
     )

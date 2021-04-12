@@ -21,12 +21,11 @@ export default function Dex() {
     useEffect(() => {
         async function fetchDex() {
             // 4th gen = 493
-            let url = 'https://pokeapi.co/api/v2/pokemon?limit=898'
+            let url = 'https://pokeapi.co/api/v2/pokemon?limit=493'
             let request = await fetch(url)
             let data = await request.json()
             Setpokemon(data.results)
             SetLoading(false)
-            console.log(pokemon)
         }
         fetchDex()
     }, [])
