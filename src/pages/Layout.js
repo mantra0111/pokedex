@@ -38,6 +38,6 @@ export default function Layout({ children }) {
             <Navbar handleDrawer={handleDrawer} className={classes.appBar} />
             <NavDrawer handleDrawer={handleDrawer} drawerOpen={state.drawerOpen} />
         </header>
-        <article>{children}</article>
+        <article style={{ minHeight: "90vh" }}>{children}</article>
     </>)
 }

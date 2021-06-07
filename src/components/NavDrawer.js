@@ -9,9 +9,8 @@ import ContactMailRoundedIcon from '@material-ui/icons/ContactMailRounded';
 import BugReportIcon from '@material-ui/icons/BugReport';
 import IconButton from '@material-ui/core/IconButton'
 import { makeStyles } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
 
-let drawerWidth = 240
+let drawerWidth = 260
 
 const useStyles = makeStyles({
     drawer: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
     },
     drawerHeader: {
         position: 'relative',
-        left: '75%'
+        left: '75%',
     }
 })
 
@@ -46,7 +45,7 @@ export default function NavDrawer({ drawerOpen, handleDrawer }) {
         {
             title: "My vanilla js projects",
             icon: <BugReportIcon />,
-            url: "https://mantra0111.github.io/VanillaJs/homePage/public/index.html",
+            url: "https://mantra0111.github.io/VanillaJs/",
         }
     ]
 
@@ -73,7 +72,7 @@ export default function NavDrawer({ drawerOpen, handleDrawer }) {
                     paper: classes.drawerPaper,
                 }}>
                 <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawer}>
+                    <IconButton onClick={handleDrawer} style={{ padding: '30px 30px' }}>
                         <CloseRoundedIcon />
                     </IconButton>
                 </div>
