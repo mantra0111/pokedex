@@ -2,7 +2,7 @@
   "name": "pokedex",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.io/mantra0111/pokedex",
+  "homepage": "https://mantra0111.github.io/pokedex",
   "author": "Mateo Sierra Betancur",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
