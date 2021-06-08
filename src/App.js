@@ -1,6 +1,6 @@
 import Dex from './components/Dex'
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, HashRouter as Router, Route } from 'react-router-dom';
 import PokemonDetails from './components/PokemonDetails';
 import PokemonNotFound from './components/404'
 import Layout from './pages/Layout'
