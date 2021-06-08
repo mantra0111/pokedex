@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/mantra0111/pokedex/static/css/main.f2b092f3.chunk.css",
-    "main.js": "/mantra0111/pokedex/static/js/main.f2f4c46c.chunk.js",
-    "main.js.map": "/mantra0111/pokedex/static/js/main.f2f4c46c.chunk.js.map",
-    "runtime-main.js": "/mantra0111/pokedex/static/js/runtime-main.b670d0b3.js",
-    "runtime-main.js.map": "/mantra0111/pokedex/static/js/runtime-main.b670d0b3.js.map",
-    "static/js/2.9d9c1c05.chunk.js": "/mantra0111/pokedex/static/js/2.9d9c1c05.chunk.js",
-    "static/js/2.9d9c1c05.chunk.js.map": "/mantra0111/pokedex/static/js/2.9d9c1c05.chunk.js.map",
-    "static/js/3.fa69b625.chunk.js": "/mantra0111/pokedex/static/js/3.fa69b625.chunk.js",
-    "static/js/3.fa69b625.chunk.js.map": "/mantra0111/pokedex/static/js/3.fa69b625.chunk.js.map",
-    "index.html": "/mantra0111/pokedex/index.html",
-    "static/css/main.f2b092f3.chunk.css.map": "/mantra0111/pokedex/static/css/main.f2b092f3.chunk.css.map",
-    "static/js/2.9d9c1c05.chunk.js.LICENSE.txt": "/mantra0111/pokedex/static/js/2.9d9c1c05.chunk.js.LICENSE.txt"
+    "main.css": "/pokedex/static/css/main.f2b092f3.chunk.css",
+    "main.js": "/pokedex/static/js/main.f2f4c46c.chunk.js",
+    "main.js.map": "/pokedex/static/js/main.f2f4c46c.chunk.js.map",
+    "runtime-main.js": "/pokedex/static/js/runtime-main.20c28153.js",
+    "runtime-main.js.map": "/pokedex/static/js/runtime-main.20c28153.js.map",
+    "static/js/2.9d9c1c05.chunk.js": "/pokedex/static/js/2.9d9c1c05.chunk.js",
+    "static/js/2.9d9c1c05.chunk.js.map": "/pokedex/static/js/2.9d9c1c05.chunk.js.map",
+    "static/js/3.fa69b625.chunk.js": "/pokedex/static/js/3.fa69b625.chunk.js",
+    "static/js/3.fa69b625.chunk.js.map": "/pokedex/static/js/3.fa69b625.chunk.js.map",
+    "index.html": "/pokedex/index.html",
+    "static/css/main.f2b092f3.chunk.css.map": "/pokedex/static/css/main.f2b092f3.chunk.css.map",
+    "static/js/2.9d9c1c05.chunk.js.LICENSE.txt": "/pokedex/static/js/2.9d9c1c05.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.b670d0b3.js",
+    "static/js/runtime-main.20c28153.js",
     "static/js/2.9d9c1c05.chunk.js",
     "static/css/main.f2b092f3.chunk.css",
     "static/js/main.f2f4c46c.chunk.js"
