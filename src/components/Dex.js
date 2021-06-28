@@ -20,8 +20,15 @@ export default function Dex() {
 
     useEffect(() => {
         async function fetchDex() {
+            // 1st gen = 151
+            // 2nd gen = 251
+            // 3rd gen = 386
             // 4th gen = 493
-            let url = 'https://pokeapi.co/api/v2/pokemon?limit=898'
+            // 5th gen = 649
+            // 6th gen = 721 
+            // 7th gen = 809
+            // 8th gen = 898
+            let url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
             let request = await fetch(url)
             let data = await request.json()
             Setpokemon(data.results)
